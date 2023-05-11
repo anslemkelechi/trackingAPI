@@ -3,22 +3,19 @@ const express = require("express");
 const app = express();
 const expressLayouts = require("express-ejs-layouts");
 const adminRoute = require("./routes/adminRoute");
+const homeRoute = require("./routes/homeRoute");
 const flash = require("connect-flash");
 const session = require("express-session");
 
-
 //VIEWS
-// app.use(express.static("public"));
-// app.use(expressLayouts);
-// app.set("layout", "./layouts");
-// app.set("view engine", "ejs");
-
-
+app.use(express.static("public"));
+app.use(expressLayouts);
+app.set("layout", "./layouts");
+app.set("view engine", "ejs");
 
 //ACCEPT FORM BODY
-//app.use(express.json());
+app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
 
 //Express Session
 app.use(
@@ -28,7 +25,6 @@ app.use(
     saveUninitialized: true,
   })
 );
-
 
 //Connect flash
 app.use(flash());
@@ -42,14 +38,7 @@ app.use((req, res, next) => {
 });
 
 //Rouutes
+app.use("/", homeRoute);
 app.use("/admin", adminRoute);
-
-//Global Error Handler
-app.all("*", (req, res, next) => {
-  return next(
-    new appError(404, `${req.originalUrl} cannot be found in this application`)
-  );
-});
-
 
 module.exports = app;
