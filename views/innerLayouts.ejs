@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <title>Tracking Info</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&display=swap");
+        html {
+          font-size: 62.5%;
+        }
+        body {
+          font-family: "Lato", sans-serif;
+        }
+        .main-content {
+          width: 100%;
+          position: relative;
+        }
+        .form-content {
+          width: 70%;
+          position: absolute;
+          left: 50%;
+          top: 0%;
+          transform: translateX(-50%);
+        }
+        .form-content .main-header {
+          text-align: center;
+        }
+        .form-container {
+          width: 100%;
+        }
+        .form-container .form-item {
+          width: 80%;
+          margin: 1rem auto;
+        }
+        .form-container .form-item input {
+          width: 100%;
+          margin: 0 auto;
+          padding: 1rem 2rem;
+        }
+        .submit-btn {
+          background-color: #3457d5;
+          outline: none;
+          border: none;
+          color: #fff;
+          cursor: pointer;
+        }
+          .order-content {
+          width: 100%;
+        }
+        .orders{
+          margin: 4rem auto;
+          display: grid;
+          grid-template-columns: 22.5% 22.5% 22.5% 22.5%;
+          grid-gap: 1rem;
+          justify-content: center;
+        }
+         .order-item{
+          padding:1rem 2rem;
+          background-color:#B9D9EB
+        }
+        .order-item a{
+          text-decoration: none;
+          display: block;
+          color:#fff;
+          background-color: #0E3386;
+          margin-bottom: 1rem;
+          padding: 1rem 2rem;
+          font-size: 1.5rem;
+        }
+        @media screen and (max-width: 768px) {
+          html {
+            font-size: 50%;
+          }
+          .form-content {
+            width: 90%;
+          }
+          .form-container .form-item {
+            width: 90%;
+            margin: 9rem auto;
+          }
+          .form-container .form-item input {
+      width: 100%;
+      padding: 4rem .2rem;
+      border: 1px solid #3457D7;
+        }
+        .orders{
+          grid-template-columns: 90%;
+        }
+        .order-item{
+          margin: 2rem 0;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="main-content"><%- body %></div>
+  </body>
+</html>
