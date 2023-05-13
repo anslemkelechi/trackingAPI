@@ -1,0 +1,34 @@
+<div class="form-content">
+  <h1 class="main-header">New Order</h1>
+  <form action="/admin/addhistory/<%= ID %>" method="POST" class="form-container">
+    <div class="form-item">
+      <input type="text" placeholder="Date" name="date" />
+    </div>
+    <div class="form-item">
+      <input type="text" placeholder="Time" name="time" />
+    </div>
+    <div class="form-item">
+      <input type="text" placeholder="Current Location" name="location" />
+    </div>
+    <div class="form-item">
+      <input type="text" placeholder="Status" name="status" />
+    </div>
+    <div class="form-item">
+      <input
+        type="text"
+        placeholder="Updated By"
+        name="updatedBy"
+      />
+    </div>
+    <div class="form-item">
+      <input
+        type="text"
+        placeholder="Remarks"
+        name="remarks"
+      />
+    </div>
+    <div class="form-item">
+      <input type="submit" value="Create Order" class="submit-btn" />
+    </div>
+  </form>
+</div>

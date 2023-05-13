@@ -40,9 +40,9 @@
             Canada Post, Royal Mail, Deutsche Post,<br class="d-none d-lg-block">Aliexpress, UPS, Shein, FedEx, Pitney
             Bowes, eBay, Amazon</p>
           <div class="form-trackparcel wow animate__animated animate__fadeIn">
-            <form action="#">
+            <form action="/tracking/info" method="POST">
               <div class="form-group">
-                <input class="form-control" type="text" placeholder="Your package tracking number">
+                <input class="form-control" type="text" placeholder="Your package tracking number" name="trackingNo">
                 <input class="btn btn-brand-1 btn-track" type="submit" value="Track Package">
               </div>
             </form>

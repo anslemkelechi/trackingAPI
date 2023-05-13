@@ -1,31 +1,21 @@
 <div class="order-content">
   <div class="orders">
     <% if(orders) { %>
-        
+      <% console.log(orders) %>
+       <% if(Array.isArray(orders)){%>
+        <% orders.forEach(cur=> {%>
     <div class="order-item">
-        <h3>Tracking Number: OCN-563535</h3>
-    <h3>Sender Name: Jenny</h3>
-    <a href="/admin/addhistory">Add History</a>
-    <a href="/admin/editorder">Edit Order</a>
-    </div>
-    <div class="order-item">
-        <h3>Tracking Number: OCN-563535</h3>
-    <h3>Sender Name: Jenny</h3>
-    <a href="/admin/addhistory">Add History</a>
-    <a href="/admin/editorder">Edit Order</a>
-    </div>
-    <div class="order-item">
-        <h3>Tracking Number: OCN-563535</h3>
-    <h3>Sender Name: Jenny</h3>
-    <a href="/admin/addhistory">Add History</a>
-    <a href="/admin/editorder">Edit Order</a>
-    </div>
-    <div class="order-item">
-        <h3>Tracking Number: OCN-563535</h3>
-    <h3>Sender Name: Jenny</h3>
-    <a href="/admin/addhistory">Add History</a>
-    <a href="/admin/editorder">Edit Order</a>
-    </div>
+      <h3>Tracking Number: <%= cur.trackingNumber %></h3>
+      <h3>Reciever Name: <%= cur.recieverName %></h3>
+      <a href="/admin/addhistory/<%= cur.trackingNumber %>">Add History</a>
+      <a href="/admin/edit-order/<%= cur.trackingNumber %>">Edit Order</a>
+    </div>   
+      <% })%>
+      <% } else {%>
+        <div>
+          <h2>One Value</h2>
+        </div>
+         <% } %>
     <% } %>
   </div>
 </div>

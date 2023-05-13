@@ -40,5 +40,6 @@ app.use((req, res, next) => {
 //Rouutes
 app.use("/", homeRoute);
 app.use("/admin", adminRoute);
+app.use("/tracking", adminRoute);
 
 module.exports = app;

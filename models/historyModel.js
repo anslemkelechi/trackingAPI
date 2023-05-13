@@ -21,7 +21,7 @@ const historySchema = new mongoose.Schema(
       type: String,
     },
     order: {
-      type: mongoose.Schema.ObjectId,
+      type: String,
       ref: "Item",
     },
   },
