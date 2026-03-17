@@ -29,6 +29,12 @@ mongoose
   })
   .then((con) => {
     console.log("DB Connection Successful");
+  })
+  .catch((err) => {
+    console.log("Database Connection Error:", err.message);
+    if (process.env.NODE_ENV === "development") {
+      console.log("Ensure MongoDB is running locally for development.");
+    }
   });
 
 //Connect To Server

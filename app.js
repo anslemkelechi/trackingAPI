@@ -6,6 +6,7 @@ const adminRoute = require("./routes/adminRoute");
 const homeRoute = require("./routes/homeRoute");
 const flash = require("connect-flash");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 
 //VIEWS
 app.use(express.static("public"));
@@ -18,13 +19,25 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 //Express Session
-app.use(
-  session({
-    secret: "keyboardcat",
-    resave: true,
-    saveUninitialized: true,
-  })
-);
+const sessionConfig = {
+  secret: "keyboardcat",
+  resave: false,
+  saveUninitialized: false,
+  cookie: { secure: false, maxAge: 1000 * 60 * 60 * 24 } // 24 hours
+};
+
+// Use MongoDB store in production, memory store in development
+if (process.env.NODE_ENV === "production") {
+  sessionConfig.store = MongoStore.create({
+    mongoUrl: process.env.DATABASE_PROD.replace(
+      "<password>",
+      process.env.DATABASE_PASSWORD
+    ),
+  });
+  sessionConfig.cookie.secure = true; // https only in production
+}
+
+app.use(session(sessionConfig));
 
 //Connect flash
 app.use(flash());
