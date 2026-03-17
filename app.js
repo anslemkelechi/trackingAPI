@@ -23,15 +23,15 @@ const sessionConfig = {
   secret: "keyboardcat",
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: false, maxAge: 1000 * 60 * 60 * 24 } // 24 hours
+  cookie: { secure: false, maxAge: 1000 * 60 * 60 * 24 }, // 24 hours
 };
 
 // Use MongoDB store in production, memory store in development
 if (process.env.NODE_ENV === "production") {
-  sessionConfig.store = MongoStore.create({
+  sessionConfig.store = MongoStore({
     mongoUrl: process.env.DATABASE_PROD.replace(
       "<password>",
-      process.env.DATABASE_PASSWORD
+      process.env.DATABASE_PASSWORD,
     ),
   });
   sessionConfig.cookie.secure = true; // https only in production
