@@ -1,6 +1,10 @@
+const dotenv = require("dotenv");
+
+//Load environment variables FIRST
+dotenv.config({ path: "./config.env" });
+
 const mongoose = require("mongoose");
 const app = require("./app");
-const dotenv = require("dotenv");
 
 //Uncaught Exception handler
 process.on("uncaughtException", (err) => {
@@ -9,12 +13,10 @@ process.on("uncaughtException", (err) => {
   process.exit(1);
 });
 
-dotenv.config({ path: "./config.env" });
-
 //CREATE DB CONNECTION
 let DB = process.env.DATABASE_PROD.replace(
   "<password>",
-  process.env.DATABASE_PASSWORD
+  process.env.DATABASE_PASSWORD,
 );
 
 if (process.env.NODE_ENV == "development") {
