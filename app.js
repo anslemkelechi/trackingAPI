@@ -28,7 +28,7 @@ const sessionConfig = {
 
 // Use MongoDB store in production, memory store in development
 if (process.env.NODE_ENV === "production") {
-  sessionConfig.store = MongoStore({
+  sessionConfig.store = MongoStore.create({
     mongoUrl: process.env.DATABASE_PROD.replace(
       "<password>",
       process.env.DATABASE_PASSWORD,
