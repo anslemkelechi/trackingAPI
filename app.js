@@ -6,7 +6,7 @@ const adminRoute = require("./routes/adminRoute");
 const homeRoute = require("./routes/homeRoute");
 const flash = require("connect-flash");
 const session = require("express-session");
-const MongoStore = require("connect-mongo");
+const { MongoStore } = require("connect-mongo");
 
 //VIEWS
 app.use(express.static("public"));
